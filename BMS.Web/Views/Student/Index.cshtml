@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BMS.Domain.Entities.Student>
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<h2 class="text-center mb-4">BMS List</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Entry">Add New Student</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Branch</th>
+            <th>Created Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>@item.Branch</td>
+                    <td>@item.CreatedDate.ToString("dd-MM-yyyy")</td>
+                    <td>@(item.Status ? "Active" : "Inactive")</td>
+
+                    <td>
+                        <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-info btn-sm">
+                            Details
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" 
+                           onclick="return confirm('Are you sure you want to delete this student?');">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7" class="text-center text-danger">No students found</td>
+            </tr>
+        }
+    </tbody>
+</table>

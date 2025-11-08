@@ -1,0 +1,28 @@
+﻿@model BMS.Domain.Entities.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h2 class="text-center mb-4">Student Details</h2>
+
+<div class="card shadow-sm p-4" style="max-width: 600px; margin: 0 auto;">
+    <dl class="row">
+        <dt class="col-sm-4">Name</dt>
+        <dd class="col-sm-8">@Model.Name</dd>
+
+        <dt class="col-sm-4">Age</dt>
+        <dd class="col-sm-8">@Model.Age</dd>
+
+        <dt class="col-sm-4">Branch</dt>
+        <dd class="col-sm-8">@Model.Branch</dd>
+
+        <dt class="col-sm-4">Created Date</dt>
+        <dd class="col-sm-8">@Model.CreatedDate.ToString("dd-MM-yyyy")</dd>
+    </dl>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    </div>
+</div>
