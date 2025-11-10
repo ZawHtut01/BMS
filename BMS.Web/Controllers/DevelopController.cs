@@ -9,7 +9,7 @@ namespace BMS.Web.Controllers
             return View();
         }
 
-        public IActionResult Develop()
+        public IActionResult Master()
 
         {
             return View();
