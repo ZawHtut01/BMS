@@ -15,9 +15,15 @@ namespace BMS.Web.Controllers
             return View();
         }
 
+        public IActionResult World()
+        {
+            return View();
+        }
+
         public IActionResult Details()
         {
             return View();
         }
+        
     }
 }
